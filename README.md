@@ -1,7 +1,7 @@
 # got
 got is simple tmux tool
 
-## featurs
+## Features
 - new session
 - attach session
 - kill session
@@ -22,3 +22,5 @@ $ got
 | cancel    | <kbd>Ctrl</kbd> + <kbd>c</kbd> |
 | select    | <kbd>Enter</kbd>               |
 
+## Screenshots
+![s1.png](https://github.com/skanehira/got/blob/master/images/s1.png)
