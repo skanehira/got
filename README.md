@@ -1,6 +1,10 @@
 # got
 got is simple tmux tool
 
+## Support OS
+- MacOS
+- Linux
+
 ## Features
 - new session
 - attach session
@@ -13,6 +17,16 @@ tmux
 ```
 $ go get -u github.com/skanehira/got
 $ got
+```
+
+## Release
+- ![MacOS](https://github.com/skanehira/got/releases/download/v1.0.0/MacOS.zip)
+- ![Linux](https://github.com/skanehira/got/releases/download/v1.0.0/Linux.zip)
+
+## Homebrew
+```
+$ brew tap skanehira/got
+$ brew install got
 ```
 
 ## Uage
