@@ -1,0 +1,52 @@
+@startuml
+start
+:App.New();
+:Tmux.New();
+:Tmux.currentSessionName();
+if (has session name?) then (yes)
+    :Set Tmux.Name;
+    :Set Tmux.Attached true;
+else(no)
+    :Set Tmux.Name empty;
+    :Set Tmux.Attached false;
+endif
+:App.Run();
+while ()
+    :App.menu();
+    if (is attached session?) then (yes)
+        :Add "New Session" to menu;
+    endif
+    :Add "Session List" to menu;
+    :Prompt.Run();
+    if (is promptui.ErrEOF or promptui.ErrInterrupt) then (no)
+        :Do();
+        fork
+            :App.newSession();
+            :Tmux.NewSession();
+            fork again
+               :App.sessionList();
+               :Select.Run();
+        endfork
+        if (is promptui.ErrEOF) then (yes)
+            stop
+        endif
+        if (is promptui.ErrInterrupt) then (yes)
+            :back to menu;
+        endif
+        :App.selectAction(sessio name);
+            if (is attached session?) then (no)
+                :Add "Attach" to menu;
+            endif
+            :Add "Kill" to menu;
+            :Select.Run();
+        :Do;
+        fork
+            :Tmux.AttachSession(name);
+            fork again
+                :Tmux.KillSession(name);
+        endfork
+    endif
+    stop
+endwhile
+stop
+@endumll
