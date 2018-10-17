@@ -82,21 +82,6 @@ func (t *Tmux) KillSession(name string) error {
 	return cmd.Run()
 }
 
-func (t *Tmux) KillSessions(names []string) error {
-	var errs []string
-	for _, name := range names {
-		if err := t.KillSession(name); err != nil {
-			errs = append(errs, err.Error())
-		}
-	}
-
-	if len(errs) != 0 {
-		return fmt.Errorf(strings.Join(errs, "\n"))
-	}
-
-	return nil
-}
-
 func (t *Tmux) parseOutput(output string) []*Session {
 	var sessions []*Session
 
