@@ -48,7 +48,7 @@ func currentSessionName() string {
 }
 
 func (t *Tmux) SessionList() []*Session {
-	format := "#{session_name} #{window_name} #h #{?session_attached,attached,unattached} #{session_created}"
+	format := "#{session_name},#{window_name},#h,#{?session_attached,attached,unattached},#{session_created}"
 
 	output, err := exec.Command("tmux", "ls", "-F", format).Output()
 
@@ -91,7 +91,7 @@ func (t *Tmux) parseOutput(output string) []*Session {
 			break
 		}
 
-		cs := strings.Split(l, " ")
+		cs := strings.Split(l, ",")
 		sessions = append(sessions, &Session{
 			SessionName: cs[0],
 			WindowName:  cs[1],
