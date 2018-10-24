@@ -20,8 +20,8 @@ $ got
 ```
 
 ## Release
-- [MacOS](https://github.com/skanehira/got/releases/download/v1.0.1/MacOS.zip)
-- [Linux](https://github.com/skanehira/got/releases/download/v1.0.1/Linux.zip)
+- [MacOS](https://github.com/skanehira/got/releases/download/v1.0.2/MacOS.zip)
+- [Linux](https://github.com/skanehira/got/releases/download/v1.0.2/Linux.zip)
 
 ## Homebrew
 ```

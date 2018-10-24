@@ -1,6 +1,7 @@
 package tmux
 
 import (
+	"bufio"
 	"fmt"
 	"os"
 	"os/exec"
@@ -60,7 +61,18 @@ func (t *Tmux) SessionList() []*Session {
 }
 
 func (t *Tmux) NewSession() error {
-	cmd := exec.Command("tmux")
+	var cmd *exec.Cmd
+	stdin := bufio.NewScanner(os.Stdin)
+	fmt.Print("New Session Name: ")
+
+	stdin.Scan()
+	sessionName := stdin.Text()
+	if sessionName != "" {
+		cmd = exec.Command("tmux", "new-session", "-s", sessionName)
+	} else {
+		cmd = exec.Command("tmux")
+	}
+
 	cmd.Stdin = os.Stdin
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
