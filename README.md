@@ -9,6 +9,7 @@ got is simple tmux tool
 - new session
 - attach session
 - kill session
+- swtich session
 
 ## Required
 tmux
@@ -20,8 +21,8 @@ $ got
 ```
 
 ## Release
-- [MacOS](https://github.com/skanehira/got/releases/download/v1.0.2/MacOS.zip)
-- [Linux](https://github.com/skanehira/got/releases/download/v1.0.2/Linux.zip)
+- [MacOS](https://github.com/skanehira/got/releases/download/v1.0.3/MacOS.zip)
+- [Linux](https://github.com/skanehira/got/releases/download/v1.0.3/Linux.zip)
 
 ## Homebrew
 ```

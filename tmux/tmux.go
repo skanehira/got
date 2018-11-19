@@ -24,16 +24,15 @@ type Session struct {
 }
 
 func New() *Tmux {
-	tmux := &Tmux{}
-	var attached bool
+	tmux := new(Tmux)
 	name := currentSessionName()
 
 	if name != "" {
-		attached = true
+		tmux.Attached = true
+		tmux.Name = name
+	} else {
+		tmux.Attached = false
 	}
-
-	tmux.Name = name
-	tmux.Attached = attached
 
 	return tmux
 }
@@ -82,6 +81,15 @@ func (t *Tmux) NewSession() error {
 
 func (t *Tmux) AttachSession(name string) error {
 	cmd := exec.Command("tmux", "attach", "-t", name)
+	cmd.Stdin = os.Stdin
+	cmd.Stdout = os.Stdout
+	cmd.Stderr = os.Stderr
+
+	return cmd.Run()
+}
+
+func (t *Tmux) SwitchSession(name string) error {
+	cmd := exec.Command("tmux", "switch-client", "-t", name)
 	cmd.Stdin = os.Stdin
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr

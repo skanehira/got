@@ -136,6 +136,13 @@ func (a *App) selectAction(name string) error {
 					return a.tmux.AttachSession(name)
 				},
 			})
+	} else {
+		actions = append(actions, action{
+			Name: "Switch",
+			Do: func(name string) error {
+				return a.tmux.SwitchSession(name)
+			},
+		})
 	}
 
 	actions = append(actions,
