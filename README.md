@@ -24,13 +24,21 @@ $ got
 - [MacOS](https://github.com/skanehira/got/releases/download/v1.0.3/MacOS.zip)
 - [Linux](https://github.com/skanehira/got/releases/download/v1.0.3/Linux.zip)
 
-## Homebrew (or Linuxbrew)
+## Homebrew
 ```
 $ brew tap skanehira/got
 $ brew install got
 ```
 
+## Linuxbrew
 When installing on x86-64 Linux, do as follows.
+
+```
+$ brew tap z80oolong/tmux
+$ brew install z80oolong/tmux/got
+```
+
+Or, do as follows.
 
 ```
 $ brew tap z80oolong/tmux
